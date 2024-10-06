@@ -1,0 +1,19 @@
+{
+    'jugadores':{
+        001:{
+            'nombre' :''
+            'puntuacion':''
+        },
+         002:{
+            'nombre' :''
+            'puntuacion':''
+        },
+        003:{
+            'nombre' :''
+            'puntuacion':''
+        }
+    },
+    'ia': {
+        'puntuacion': ''
+    }
+}
