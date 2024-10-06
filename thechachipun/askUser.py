@@ -1,5 +1,4 @@
-from thechachipun.ui import util
-from thechachipun.ui.messages import incorrectOption
+from .ui import util
 
 def ask(msg):
     try:
@@ -21,9 +20,26 @@ def verify(selected, lastOption):
 
 def askAndVerify(askStruct):
     selected = verify(ask(askStruct['msg']), askStruct['lastOption'])
-    print(selected)
     if selected:
         return selected
     else:
-        print(incorrectOption)
+        util.clear()
+        print("Respuesta Incorrecta!\n")
         return None
+
+def validateResponse(message):
+    global isAllow
+    flagFunction = True
+    opciones = ('N','n','S','s')
+    try:
+        accion = input(f'{message}').upper()
+        if (accion not in opciones):
+            print('La opcion que ud ingreso no esta permitida.......')
+            validateResponse()
+        elif (accion == 'S' ):
+            flagFunction = True
+        elif  ((accion) == 'N'):
+            flagFunction = False
+        return flagFunction
+    except TypeError:
+        validateResponse(message)

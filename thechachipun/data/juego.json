@@ -1,31 +1,15 @@
 {
     "jugadores": {
         "001": {
-            "nombre": "pedro",
-            "puntuacion": ""
-        },
-        "002": {
             "nombre": "juan",
             "puntuacion": ""
         },
+        "002": {
+            "nombre": "pedro",
+            "puntuacion": ""
+        },
         "003": {
-            "nombre": "",
-            "puntuacion": ""
-        },
-        "004": {
-            "nombre": "juana",
-            "puntuacion": ""
-        },
-        "005": {
-            "nombre": "mama",
-            "puntuacion": ""
-        },
-        "006": {
-            "nombre": "rf",
-            "puntuacion": ""
-        },
-        "007": {
-            "nombre": "l",
+            "nombre": "maria",
             "puntuacion": ""
         }
     },
