@@ -6,6 +6,6 @@ def menuPrincipal():
         input(messages.inicio)
         util.clear()
         while True:
-            pass
+            break
     except:
         pass
