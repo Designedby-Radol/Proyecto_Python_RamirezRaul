@@ -1,4 +1,9 @@
 {
-    "jugadores": {},
+    "jugadores": {
+        "001": {
+            "nombre": "pedro",
+            "puntuacion": ""
+        }
+    },
     "ia": {}
 }
