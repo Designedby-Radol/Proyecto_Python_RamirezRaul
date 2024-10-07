@@ -1,17 +1,4 @@
 {
-    "jugadores": {
-        "001": {
-            "nombre": "juan",
-            "puntuacion": ""
-        },
-        "002": {
-            "nombre": "pedro",
-            "puntuacion": ""
-        },
-        "003": {
-            "nombre": "maria",
-            "puntuacion": ""
-        }
-    },
+    "jugadores": {},
     "ia": {}
 }

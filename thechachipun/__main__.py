@@ -1,6 +1,6 @@
 from .askUser import askAndVerify
 from .ui import messages,util
-from .core import addUser, checkFile, readFile
+from .core import addUser, checkFile, readFile, agregarPuntuacion
 from .game import menuPrincipal
 
 juego = {
@@ -11,6 +11,10 @@ checkFile(juego)
 input(messages.inicio)
 util.clear()
 menuPrincipal()
+
+# jugador = 1
+# score = 2
+# agregarPuntuacion(jugador, score)
 # addUser()
 # deleteJugador(messages.jugadores)
 # print("Escogió", askAndVerify(jugadores))

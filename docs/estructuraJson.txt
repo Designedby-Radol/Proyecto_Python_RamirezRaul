@@ -2,15 +2,15 @@
     'jugadores':{
         001:{
             'nombre' :''
-            'puntuacion':''
+            'puntuacion': 0
         },
          002:{
             'nombre' :''
-            'puntuacion':''
+            'puntuacion': 0
         },
         003:{
             'nombre' :''
-            'puntuacion':''
+            'puntuacion': 0
         }
     },
     'ia': {

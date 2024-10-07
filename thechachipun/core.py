@@ -31,16 +31,16 @@ def addUser():
         util.clear()
         if nombre.strip() == "":
             input(messages.usuarioVacio)
-            util.clear()
+            util.clear()   
         else:
-            for jugador_id,jugadorData in data['jugadores'].items():
+            for juagdorId,jugadorData in data['jugadores'].items():
                 if jugadorData['nombre'] == nombre:
                     print(f"El jugador '{nombre}' ya existe en la base de datos.\n")
                     break
             else:
                 nuevoJugador = {
                     'nombre': nombre,
-                    'puntuacion': ''
+                    'puntuacion': 0
                 }
                 nuevoId = str(len(data['jugadores']) + 1).zfill(3)
                 data['jugadores'][nuevoId] = nuevoJugador
@@ -54,6 +54,19 @@ def addUser():
         else:
             util.clear()
             return
+
+def agregarPuntuacion(juagdorId, nueva_puntuacion):
+    juagdorId_str = f"{juagdorId:03d}"  
+    with open(MY_DATABASE, "r+") as f:
+        data = json.load(f)
+        jugador = data['jugadores'][juagdorId_str]
+        if 'puntuacion' in jugador:
+            jugador['puntuacion'] += nueva_puntuacion
+        else:
+            jugador['puntuacion'] = nueva_puntuacion
+        f.seek(0)
+        json.dump(data, f, indent=4)
+        f.truncate()
 
 def validJugadores():
     with open(MY_DATABASE, "r+") as vl:

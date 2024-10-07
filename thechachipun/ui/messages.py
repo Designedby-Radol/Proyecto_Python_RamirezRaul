@@ -12,11 +12,21 @@ inicio = """
 
     presione la tecla enter para continuar
 """ 
-playerElec = { 'msg': """
+menuElec = { 'msg': """
                 Menu Principal
             
-        1 Elegir Jugador
-        2 Crear Jugador
+        1 jugar 1 v 1
+        2 jugar 1 vs ia
+        3 salir
+
+Elija una opcion: """,
+'lastOption': 3 }
+
+playerElec = { 'msg': """
+                Menu Principal
+                
+        1 elegir jugadores
+        2 crear jugador
         3 eliminar jugador
         4 salir
 
@@ -25,6 +35,10 @@ Elija una opcion: """,
 
 
 nombre = "ingrese el nombre del jugador: "
+
+segundo =  "escoja en segundo jugador "
+
+incorrect = "Respuesta Incorrecta!\n"
 
 usuarioVacio = "Respuesta Incorrecta! El Usuario Esta Vacio\n"
 

@@ -1,4 +1,4 @@
-from .ui import util
+from .ui import util,messages
 
 def ask(msg):
     try:
@@ -24,7 +24,7 @@ def askAndVerify(askStruct):
         return selected
     else:
         util.clear()
-        print("Respuesta Incorrecta!\n")
+        input(messages.incorrect)
         return None
 
 def validateResponse(message):
