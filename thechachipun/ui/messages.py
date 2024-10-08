@@ -1,4 +1,4 @@
-opcionesPpt = { 'msg': """OPCIONES A ELEGIR
+opcionesPpt = { 'msg': """Opciones a Elegir
         1 Piedra🥌
         2 Papel📄
         3 Tijera✂️
@@ -10,43 +10,43 @@ inicio = """
                 BIENVENID@
             Piedra Papel Tijera
 
-    presione la tecla enter para continuar
-""" 
+    Presione la tecla enter para continuar
+"""
 menuElec = { 'msg': """
-                Menu Principal
-            
-        1 jugar 1 v 1
-        2 jugar 1 vs ia
-        3 salir
+                Menú Principal
 
-Elija una opcion: """,
+        1 Jugar 1 vs 1
+        2 Jugar 1 vs CPU
+        3 Salir
+
+Elija una opción: """,
 'lastOption': 3 }
 
 playerElec = { 'msg': """
-                Menu Principal
-                
-        1 elegir jugadores
-        2 crear jugador
-        3 eliminar jugador
-        4 salir
+                Menú Principal
 
-Elija una opcion: """,
+        1 Elegir Jugadores
+        2 Crear Jugador
+        3 Eliminar Jugador
+        4 Salir
+
+Elija una opción: """,
 'lastOption': 4 }
 
-ppop1 = """          DECICION JUGADOR 1               """
-ppop2 = """          DECICION JUGADOR 2               """
+ppop1 = """          DECISIÓN JUGADOR 1               """
+ppop2 = """          DECISIÓN JUGADOR 2               """
 
-nombre = "ingrese el nombre del jugador: "
-nickname = "ingrese el nickname del jugador: "
+nombre = "Ingrese el nombre del Jugador: "
+nickname = "Ingrese el nickname del Jugador: "
 
-primero = """          escoja el primer jugador """
-segundo =  """          escoja el segundo jugador """
+primero = """          Escoja el primer jugador """
+segundo =  """          Escoja el segundo jugador """
 
-repetidos = "no puede elegir el mismo jugador"
+repetidos = "No puede elegir el mismo jugador"
 
-usuarioVacio = "Respuesta Incorrecta! El Usuario Esta Vacio\n"
+usuarioVacio = "Respuesta Incorrecta! El usuario esta vacio\n"
 
-eliminarJugador = "ELIJA UN JUGADOR PARA ELIMINAR \n"
+eliminarJugador = "Elija un jugador para eliminar \n"
 
 eliminado= "Jugador eliminado correctamente"
 
