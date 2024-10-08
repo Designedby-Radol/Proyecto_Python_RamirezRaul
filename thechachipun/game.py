@@ -1,7 +1,7 @@
 from .askUser import askAndVerify,validateResponse
 from .ui import messages, util
 from .core import validJugadores,addUser,listarJugadores,eliminarJugador,agregarPuntuacion
-from .modules import oneByOne
+from .modules import oneByOne,oneByCpu
 
 def menuPrincipal():
     try:
@@ -13,40 +13,89 @@ def menuPrincipal():
             case 1 :
                 unoVersus()
             case 2 :
-                pass
-            case 3:
+                cpu()
+            case 3 : 
+                gestion()
+            case 4 :
                 if validateResponse(messages.salida):
-                    return
+                    util.clear()
+                    pass
                 else:
                     util.clear()
                     menuPrincipal()
-    except:
-        pass
+    except ValueError:
+        menuPrincipal()
 
-def unoVersus():
+def gestion():
     try:
-        if validJugadores():
+        while True :
             playerElec = askAndVerify(messages.playerElec)
             match playerElec:
                 case 1 :
-                    oneByOne()
-                    unoVersus()
+                    jugadores = listarJugadores() #hacer funcion wait para que se muestren jugadores
+                    print(jugadores)
+                    input()
+                    util.clear()
                 case 2 :
                     addUser()
-                    unoVersus()
+                    gestion()
                 case 3:
                     eliminado = askAndVerify(listarJugadores())
-                    eliminarJugador(eliminado)
-                    unoVersus()
+                    if not eliminado:
+                        unoVersus()
+                    else:
+                        eliminarJugador(eliminado)
+                    gestion()
                 case 4:
                     if validateResponse(messages.salida):
                         util.clear()
                         return menuPrincipal()
                     else:
                         util.clear()
+                        return gestion()
+    except ValueError:
+        gestion()
+
+def unoVersus():
+    try:
+        while True :
+            playerElec = askAndVerify(messages.unoElec)
+            match playerElec:
+                case 1 :
+                    if validJugadores():
+                        oneByOne()
+                        unoVersus()
+                    else:
+                        print(messages.noHayJugadores)
+                        unoVersus()
+                case 2:
+                    if validateResponse(messages.salida):
+                        util.clear()
+                        return menuPrincipal()
+                    else:
+                        util.clear()
                         return unoVersus()
-        else:
-            addUser()
-            menuPrincipal()
-    except:
-        pass
+    except ValueError:
+        unoVersus()
+
+def cpu():
+    try:
+        while True:
+                playerElec = askAndVerify(messages.cpuElec)
+                match playerElec:
+                    case 1 :
+                        if validJugadores():
+                            oneByCpu()
+                            cpu()
+                        else:
+                            print(messages.noHayJugadores)
+                            cpu()
+                    case 2:
+                        if validateResponse(messages.salida):
+                            util.clear()
+                            return menuPrincipal()
+                        else:
+                            util.clear()
+                            return unoVersus()
+    except ValueError:
+        cpu()

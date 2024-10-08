@@ -1,19 +1,24 @@
 from .askUser import askAndVerify
 from .ui import messages,util
-from .core import addUser, checkFile, readFile, agregarPuntuacion,eliminarJugador,validEscudos
+from .core import addUser, agregarPuntuacion,agregarCpuPuntos,agregarCpuEscudos,checkFile, readFile, eliminarJugador,validEscudos
 from .game import menuPrincipal
 from .modules import partida, oneByOne, partida, ronda
 
 juego = {
     'jugadores' : {},
-    'ia': {}
+    'ia': {
+        'puntuacion': 0,
+        'escudos' : 0
+    }
 }
 checkFile(juego)
 input(messages.inicio)
 util.clear()
+menuPrincipal()
 
-oneByOne()
-# menuPrincipal()
+# agregarCpuPuntos(0)
+# agregarCpuEscudos()
+# oneByOne()
 # jugador = 1
 # eliminarJugador(jugador)
 # score = 2

@@ -77,6 +77,30 @@ def eliminarJugador(jugadorId):
         else:
             print(messages.errorEliminado)
 
+def agregarCpuPuntos(nuevaPuntuacion):
+    with open(MY_DATABASE, "r+") as f:
+        data = json.load(f)
+        jugador = data['ia']
+        if 'puntuacion' in jugador:
+            jugador['puntuacion'] += nuevaPuntuacion
+        else:
+            jugador['puntuacion'] = nuevaPuntuacion
+        f.seek(0)
+        json.dump(data, f, indent=4)
+        f.truncate()
+
+def agregarCpuEscudos():
+    with open(MY_DATABASE, "r+") as f:
+        data = json.load(f)
+        jugador = data['ia']
+        if 'escudo' in jugador:
+            jugador['escudos'] += 1
+        else:
+            jugador['escudos'] += 1
+        f.seek(0)
+        json.dump(data, f, indent=4)
+        f.truncate()
+
 def agregarPuntuacion(jugadorId, nuevaPuntuacion):
     juagdorIdStr = f"{jugadorId:03d}"  
     with open(MY_DATABASE, "r+") as f:
@@ -122,22 +146,22 @@ def validEscudos(jugadorId):
         else:
             return False
 
-def listarJugadores():
-    with open(MY_DATABASE, "r") as rsf:
-        data = json.load(rsf)
-        jugadores = data['jugadores']
-        listaJugadores = ""
-        ultimoId = 0
-        for jugadorId, jugadorData in jugadores.items():
-            listaJugadores += f"{int(jugadorId)} - {jugadorData['nombre']}\n"
-            ultimoId = int(jugadorId)
-        return {'msg' :f"""
-            OPCIONES A ELEGIR
+# def listarJugadores():
+#     with open(MY_DATABASE, "r") as rsf:
+#         data = json.load(rsf)
+#         jugadores = data['jugadores']
+#         listaJugadores = ""
+#         ultimoId = 0
+#         for jugadorId, jugadorData in jugadores.items():
+#             listaJugadores += f"{int(jugadorId)} - {jugadorData['nombre']}\n"
+#             ultimoId = int(jugadorId)
+#         return {'msg' :f"""
+#             OPCIONES A ELEGIR
 
-{listaJugadores}
+# {listaJugadores}
 
-Elija el numero de jugador: """ ,
-            'lastOption' : ultimoId}
+# Elija el numero de jugador: """ ,
+#             'lastOption' : ultimoId}
 
 def listarJugadores():
     with open(MY_DATABASE, "r") as rsf:

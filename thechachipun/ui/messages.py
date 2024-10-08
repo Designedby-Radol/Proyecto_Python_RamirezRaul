@@ -17,21 +17,40 @@ menuElec = { 'msg': """
 
         1 Jugar 1 vs 1
         2 Jugar 1 vs CPU
-        3 Salir
+        3 gestionar usuarios
+        4 Salir
 
 Elija una opción: """,
-'lastOption': 3 }
+'lastOption': 4 }
 
 playerElec = { 'msg': """
-                Menú Principal
+                Menú 1 vs 1
 
-        1 Elegir Jugadores
+        1 ver jugadores
         2 Crear Jugador
         3 Eliminar Jugador
         4 Salir
 
 Elija una opción: """,
 'lastOption': 4 }
+
+unoElec =  { 'msg': """
+                Menú 1 vs 1
+
+        1 Elegir Jugadores
+        2 Salir
+
+Elija una opción: """,
+'lastOption': 2 }
+
+cpuElec = { 'msg': """
+                Menú 1 vs CPU
+
+        1 Elegir Jugador
+        4 Salir
+
+Elija una opción: """,
+'lastOption': 2 }
 
 ppop1 = """          DECISIÓN JUGADOR 1               """
 ppop2 = """          DECISIÓN JUGADOR 2               """
@@ -51,6 +70,8 @@ eliminarJugador = "Elija un jugador para eliminar \n"
 eliminado= "Jugador eliminado correctamente"
 
 errorEliminado = "No se pudo eliminar el jugador"
+
+noHayJugadores = "No se encontraron Jugadores, Cree uno en Gestion Jugadores"
 
 incorrect = "Respuesta Incorrecta!\n"
 
