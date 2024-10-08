@@ -33,16 +33,26 @@ playerElec = { 'msg': """
 Elija una opcion: """,
 'lastOption': 4 }
 
+ppop1 = """          DECICION JUGADOR 1               """
+ppop2 = """          DECICION JUGADOR 2               """
 
 nombre = "ingrese el nombre del jugador: "
+nickname = "ingrese el nickname del jugador: "
 
-segundo =  "escoja en segundo jugador "
+primero = """          escoja el primer jugador """
+segundo =  """          escoja el segundo jugador """
 
-incorrect = "Respuesta Incorrecta!\n"
+repetidos = "no puede elegir el mismo jugador"
 
 usuarioVacio = "Respuesta Incorrecta! El Usuario Esta Vacio\n"
 
 eliminarJugador = "ELIJA UN JUGADOR PARA ELIMINAR \n"
+
+eliminado= "Jugador eliminado correctamente"
+
+errorEliminado = "No se pudo eliminar el jugador"
+
+incorrect = "Respuesta Incorrecta!\n"
 
 validar = "Quiere eliminar el jugador? (s/n)"
 

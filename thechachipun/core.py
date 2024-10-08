@@ -29,6 +29,8 @@ def addUser():
         data = json.load(wtf)
         nombre = input(messages.nombre)
         util.clear()
+        nickname = input(messages.nickname)
+        util.clear()
         if nombre.strip() == "":
             input(messages.usuarioVacio)
             util.clear()   
@@ -40,7 +42,9 @@ def addUser():
             else:
                 nuevoJugador = {
                     'nombre': nombre,
-                    'puntuacion': 0
+                    'nickname': nickname,
+                    'puntuacion': 0,
+                    'escudos': 0
                 }
                 nuevoId = str(len(data['jugadores']) + 1).zfill(3)
                 data['jugadores'][nuevoId] = nuevoJugador
@@ -55,15 +59,46 @@ def addUser():
             util.clear()
             return
 
-def agregarPuntuacion(juagdorId, nueva_puntuacion):
-    juagdorId_str = f"{juagdorId:03d}"  
+def eliminarJugador(jugadorId):
     with open(MY_DATABASE, "r+") as f:
         data = json.load(f)
-        jugador = data['jugadores'][juagdorId_str]
-        if 'puntuacion' in jugador:
-            jugador['puntuacion'] += nueva_puntuacion
+        jugadorIdStr = f"{jugadorId:03d}"
+        if jugadorIdStr in data['jugadores']:
+            del data['jugadores'][jugadorIdStr]
+            jugadores = data['jugadores']
+            nuevosJugadores = {}
+            for i, (idx, jugadorData) in enumerate(jugadores.items()):
+                nuevosJugadores[f"{i+1:03d}"] = jugadorData
+            data['jugadores'] = nuevosJugadores
+            f.seek(0)
+            json.dump(data, f, indent=4)
+            f.truncate()
+            print(messages.eliminado)
         else:
-            jugador['puntuacion'] = nueva_puntuacion
+            print(messages.errorEliminado)
+
+def agregarPuntuacion(jugadorId, nuevaPuntuacion):
+    juagdorIdStr = f"{jugadorId:03d}"  
+    with open(MY_DATABASE, "r+") as f:
+        data = json.load(f)
+        jugador = data['jugadores'][juagdorIdStr]
+        if 'puntuacion' in jugador:
+            jugador['puntuacion'] += nuevaPuntuacion
+        else:
+            jugador['puntuacion'] = nuevaPuntuacion
+        f.seek(0)
+        json.dump(data, f, indent=4)
+        f.truncate()
+
+def agregarEscudos(jugadorId):
+    juagdorIdStr = f"{jugadorId:03d}"  
+    with open(MY_DATABASE, "r+") as f:
+        data = json.load(f)
+        jugador = data['jugadores'][juagdorIdStr]
+        if 'escudo' in jugador:
+            jugador['escudos'] += 1
+        else:
+            jugador['escudos'] += 1
         f.seek(0)
         json.dump(data, f, indent=4)
         f.truncate()
@@ -76,6 +111,17 @@ def validJugadores():
         else:
             return False
 
+def validEscudos(jugadorId):
+    juagdorIdStr = f"{jugadorId:03d}"
+    with open(MY_DATABASE, "r+") as vl:
+        data = json.load(vl)
+        jugador = data['jugadores'][juagdorIdStr]
+        escudo = jugador['escudos']
+        if escudo >= 1 :
+            return True
+        else:
+            return False
+
 def listarJugadores():
     with open(MY_DATABASE, "r") as rsf:
         data = json.load(rsf)
@@ -84,6 +130,23 @@ def listarJugadores():
         ultimoId = 0
         for jugadorId, jugadorData in jugadores.items():
             listaJugadores += f"{int(jugadorId)} - {jugadorData['nombre']}\n"
+            ultimoId = int(jugadorId)
+        return {'msg' :f"""
+            OPCIONES A ELEGIR
+
+{listaJugadores}
+
+Elija el numero de jugador: """ ,
+            'lastOption' : ultimoId}
+
+def listarJugadores():
+    with open(MY_DATABASE, "r") as rsf:
+        data = json.load(rsf)
+        jugadores = data['jugadores']
+        listaJugadores = ""
+        ultimoId = 0
+        for jugadorId, jugadorData in jugadores.items():
+            listaJugadores += f"{int(jugadorId)} - {jugadorData['nombre']}  : {jugadorData['nickname']}  \n"
             ultimoId = int(jugadorId)
         return {'msg' :f"""
             OPCIONES A ELEGIR

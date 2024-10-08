@@ -1,6 +1,7 @@
 from .askUser import askAndVerify,validateResponse
 from .ui import messages, util
-from .core import validJugadores,addUser,listarJugadores
+from .core import validJugadores,addUser,listarJugadores,eliminarJugador,agregarPuntuacion
+from .modules import oneByOne
 
 def menuPrincipal():
     try:
@@ -12,15 +13,13 @@ def menuPrincipal():
             case 1 :
                 unoVersus()
             case 2 :
-                addUser()
-                menuPrincipal()
+                pass
             case 3:
-                
                 if validateResponse(messages.salida):
                     return
                 else:
                     util.clear()
-                    menuPrincipal() 
+                    menuPrincipal()
     except:
         pass
 
@@ -30,26 +29,22 @@ def unoVersus():
             playerElec = askAndVerify(messages.playerElec)
             match playerElec:
                 case 1 :
-                    player1 = askAndVerify(listarJugadores())
-                    print(messages.segundo)
-                    player2 = askAndVerify(listarJugadores())
-                    if player1 is None or player2 is None:
-                        print(messages.usuarioVacio)
+                    oneByOne()
+                    unoVersus()
+                case 2 :
+                    addUser()
+                    unoVersus()
+                case 3:
+                    eliminado = askAndVerify(listarJugadores())
+                    eliminarJugador(eliminado)
+                    unoVersus()
+                case 4:
+                    if validateResponse(messages.salida):
                         util.clear()
                         return menuPrincipal()
                     else:
-                        pass
-                case 2 :
-                    addUser()
-                    menuPrincipal()
-                case 3:
-                    pass
-                case 4:
-                    if validateResponse(messages.salida):
-                        return
-                    else:
                         util.clear()
-                        menuPrincipal() 
+                        return unoVersus()
         else:
             addUser()
             menuPrincipal()

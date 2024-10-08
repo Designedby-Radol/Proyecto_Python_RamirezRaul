@@ -25,6 +25,7 @@ def askAndVerify(askStruct):
     else:
         util.clear()
         input(messages.incorrect)
+        util.clear()
         return None
 
 def validateResponse(message):
