@@ -1,19 +1,37 @@
 {
-    'jugadores':{
-        001:{
-            'nombre' :''
-            'puntuacion': 0
+    "jugadores": {
+        "001": {
+            "nombre": "",
+            "nickname": "",
+            "puntuacion": 0,
+            "escudos": 0,
+            "partidasWia": 0,
+            "paridasLia": 0
         },
-         002:{
-            'nombre' :''
-            'puntuacion': 0
+        "002": {
+            "nombre": "",
+            "nickname": "",
+            "puntuacion": 0,
+            "escudos": 0,
+            "partidasWia": 0,
+            "paridasLia": 0,
+            "partidasLia": 1
         },
-        003:{
-            'nombre' :''
-            'puntuacion': 0
+        "003": {
+            "nombre": "",
+            "nickname": "",
+            "puntuacion": 0,
+            "escudos": 0,
+            "partidasWia": 0,
+            "paridasLia": 0
         }
     },
-    'ia': {
-        'puntuacion': ''
+    "ia": {
+        "puntuacion": 0,
+        "escudos": 0
+    },
+    "ia_dificil": {
+        "puntuacion": 0,
+        "escudos": 0
     }
 }

@@ -17,22 +17,24 @@ menuElec = { 'msg': """
 
         1 Jugar 1 vs 1
         2 Jugar 1 vs CPU
-        3 gestionar usuarios
-        4 Salir
+        3 Jugar 1 vs CPU (Dificil)
+        4 Gestionar Usuarios
+        5 Salir
 
 Elija una opción: """,
-'lastOption': 4 }
+'lastOption': 5 }
 
 playerElec = { 'msg': """
-                Menú 1 vs 1
+                Menú Gestion Usuario
 
-        1 ver jugadores
+        1 Ver Jugadores
         2 Crear Jugador
         3 Eliminar Jugador
-        4 Salir
+        4 Estadisticas
+        5 Salir
 
 Elija una opción: """,
-'lastOption': 4 }
+'lastOption': 5 }
 
 unoElec =  { 'msg': """
                 Menú 1 vs 1
@@ -47,7 +49,16 @@ cpuElec = { 'msg': """
                 Menú 1 vs CPU
 
         1 Elegir Jugador
-        4 Salir
+        2 Salir
+
+Elija una opción: """,
+'lastOption': 2 }
+
+cpuDificilElec = { 'msg': """
+                Menú 1 vs CPU Dificil
+
+        1 Elegir Jugador
+        2 Salir
 
 Elija una opción: """,
 'lastOption': 2 }

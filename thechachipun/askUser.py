@@ -1,5 +1,10 @@
 from .ui import util,messages
 
+"""
+este modulo se va a encargar de preguntar todo lo que necesite al usuario y validar que lo que pregunte sea correcto
+"""
+
+#Con esta funcion pido y guardo una eleccion al usuario, dandole un mensaje con opciones para que pueda escoger
 def ask(msg):
     try:
         selected = int(input(msg))
@@ -8,6 +13,7 @@ def ask(msg):
     except:
         return None
 
+# esta funcion se en carga de validar que la eleccion del usuario este entre las opciones que previamente le otorgue
 def verify(selected, lastOption):
     # print(type(selected))
     # print(type(lastOption))
@@ -18,6 +24,7 @@ def verify(selected, lastOption):
     # print (selected)
     return selected if selected in range(1, lastOption+1) else None
 
+#esta funcion se encarga de anidar y dar funcionamiento a las funciones que que piden y verificar una eleccion del usuario
 def askAndVerify(askStruct):
     selected = verify(ask(askStruct['msg']), askStruct['lastOption'])
     if selected:
@@ -28,6 +35,7 @@ def askAndVerify(askStruct):
         util.clear()
         return None
 
+#esta funcion encarga de preguntarle al usuario si desea o no tomar una decision
 def validateResponse(message):
     global isAllow
     flagFunction = True
